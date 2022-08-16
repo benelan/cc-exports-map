@@ -8,10 +8,27 @@ Looking into adding an [exports map](https://nodejs.org/api/packages.html#packag
 1. Run `npm install && npm run dev`
 2. Open the browser and go to [http://localhost:5173/calcite](http://localhost:5173/calcite)
 3. In the console you will see the same error as [this issue](https://github.com/Esri/calcite-components/issues/5077)
-4. Type `<CTRL> C`
+4. Exit the node process (`Ctrl+C`)
 5. Run `npm run build:cc && npm run link && npm run dev`
 6. Open the browser again to the same url
-7. Notice a different error
+7. Notice a different error:
+![image](https://user-images.githubusercontent.com/10986395/184781511-be962f83-adbe-40df-8dce-aeb0e87ffd18.png)
+
+The sample works if you use dynamic imports
+```js
+// src/routes/calcite.svelte
+import { onMount } from 'svelte';
+onMount(async () => {
+  import("@esri/calcite-components/dist/components").then(
+    ({ setAssetPath }) =>
+      setAssetPath(
+        "https://unpkg.com/@esri/calcite-components/dist/calcite/assets"
+      )
+  );
+  import("@esri/calcite-components/dist/calcite/calcite.css");
+  import("@esri/calcite-components/dist/components/calcite-button.js");
+});
+```
 
 ---
 
