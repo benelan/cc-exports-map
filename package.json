@@ -1,11 +1,16 @@
 {
-	"name": "svelte-kit-named-export-issue",
+	"name": "cc-exports-map",
 	"version": "0.0.1",
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:cc": "cd calcite-components && npm run build",
 		"package": "svelte-kit package",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"link": "cd calcite-components && npm link && cd .. && npm link @esri/calcite-components",
+		"preinstall": "git submodule update --init --recursive --remote",
+    "postinstall": "cd calcite-components && npm i"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
@@ -13,9 +18,8 @@
 		"svelte": "^3.46.0",
 		"vite": "^3.0.0"
 	},
-	"type": "module",
 	"dependencies": {
-		"@arcgis/core": "^4.24.7",
+		"@esri/calcite-components": "^1.0.0-next.560",
 		"@fontsource/fira-mono": "^4.5.0",
 		"cookie": "^0.4.1"
 	}

@@ -1,0 +1,4 @@
+[submodule "calcite-components"]
+	path = calcite-components
+	url = https://github.com/Esri/calcite-components
+	branch = benelan/5077-export-map
