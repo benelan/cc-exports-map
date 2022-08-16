@@ -1,4 +1,4 @@
-# Calcite Components exports map
+# Calcite Components Exports Map
 
 Looking into adding an [exports map](https://nodejs.org/api/packages.html#package-entry-points).
 
@@ -13,7 +13,7 @@ Looking into adding an [exports map](https://nodejs.org/api/packages.html#packag
 6. Open the browser again to the same url
 7. Notice a different error
 
---
+---
 
 
 # create-svelte
